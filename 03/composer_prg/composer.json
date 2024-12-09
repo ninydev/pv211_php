@@ -1,0 +1,19 @@
+{
+    "name": "keeper/composer_prg",
+    "description": "Education Composer",
+    "type": "lession",
+    "license": "BeerWare",
+    "autoload": {
+        "psr-4": {
+            "Keeper\\ComposerPrg\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleksandr Nykytin",
+            "email": "keeper@ninydev.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
