@@ -5,7 +5,9 @@
     "license": "BeerWare",
     "autoload": {
         "psr-4": {
-            "Keeper\\ComposerPrg\\": "src/"
+            "Keeper\\": "src/",
+            "Lab325\\": "lab325/",
+            "App\\": "app/"
         }
     },
     "authors": [

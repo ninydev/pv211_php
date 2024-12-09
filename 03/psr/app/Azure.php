@@ -12,7 +12,7 @@ class Azure
     {
 
         $endpoint = 'https://api.cognitive.microsofttranslator.com/';
-        $subscriptionKey = '7tSQXxPcenkNuStExqMJ4wxZ22IJLcfgMvVsXOCFRm4U450Kb863JQQJ99ALAC5RqLJXJ3w3AAAbACOGRbA6';
+        $subscriptionKey = '';
         $path = "translate?api-version=3.0";
         $url = $endpoint . $path . "&to=uk";
 
