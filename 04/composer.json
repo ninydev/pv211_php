@@ -4,6 +4,8 @@
             "App\\": "app/"
         }
     },
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "ramsey/uuid": "^4.7",
+        "symfony/dotenv": "^7.2"
+    }
 }

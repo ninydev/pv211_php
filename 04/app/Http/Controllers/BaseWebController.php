@@ -19,7 +19,7 @@ abstract class BaseWebController
         ob_start();
         try {
             // Подключаем файл шаблона
-            include __DIR__ . '/../../../views/' . $this->templateName . '.tpl.php';
+            include __DIR__ . '/../../../views/layout/main.tpl.php';
             // Возвращаем содержимое буфера
             return ob_get_clean();
         } catch (Exception $e) {
