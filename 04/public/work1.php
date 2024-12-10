@@ -8,7 +8,7 @@ use App\Http\Sessions\BaseSession;
 
 $request = new BaseRequest();
 $controller = new WorkController();
-$html = $controller->view([]);
+$html = $controller->view();
 
 echo $html;
 
