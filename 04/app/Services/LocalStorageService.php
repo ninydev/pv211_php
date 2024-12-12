@@ -4,8 +4,9 @@ namespace App\Services;
 
 use App\Config\AppConfig;
 use App\Facades\Log;
+use App\Services\Interfaces\StorageServiceInterface;
 
-class LocalStorageService
+class LocalStorageService implements StorageServiceInterface
 {
 
     public function upload( $bucket, $file,  $path = null, $fileName = null ) {

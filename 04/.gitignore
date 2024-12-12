@@ -1,5 +1,7 @@
 vendor
 .env
 
+public/storage
+
 node_modules
 logs
