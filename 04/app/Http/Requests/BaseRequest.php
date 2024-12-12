@@ -16,5 +16,21 @@ class BaseRequest
         return $_REQUEST[$key] ?? $default;
     }
 
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function file(string $key): mixed
+    {
+        return $_FILES[$key];
+    }
 
+    /**
+     * Отримати тип HTTP-запиту
+     * @return string
+     */
+    public function getRequestMethod(): string
+    {
+        return $_SERVER['REQUEST_METHOD'] ?? 'UNKNOWN';
+    }
 }
