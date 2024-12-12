@@ -6,6 +6,7 @@
     },
     "require": {
         "ramsey/uuid": "^4.7",
-        "symfony/dotenv": "^7.2"
+        "symfony/dotenv": "^7.2",
+        "monolog/monolog": "^3.8"
     }
 }
