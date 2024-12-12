@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Facades\Log;
 use App\Http\Requests\UploadAvatarRequest;
+use App\Services\LocalStorageService;
 
 class AvatarController extends BaseWebController
 {
@@ -25,6 +26,9 @@ class AvatarController extends BaseWebController
         $avatar = $request->file('avatar');
 
         var_dump($avatar);
+
+        $storage = new LocalStorageService();
+        $storage->upload('avatars', $avatar);
 
     }
 
