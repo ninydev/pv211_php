@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Config;
+namespace App\Config;
 
 use Symfony\Component\Dotenv\Dotenv;
 

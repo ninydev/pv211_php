@@ -12,7 +12,7 @@ $car->brand = "Ravon";
 //var_dump($car);
 //echo "</pre>";
 
-// 1 Connect to DB (MariaDB)
+//// 1 Connect to DB (MariaDB)
 $mysqli = new mysqli(
     AppConfig::get('DB_HOST'),
     AppConfig::get('DB_USER'),
@@ -23,15 +23,28 @@ $mysqli = new mysqli(
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
-echo "Connected successfully\n";
-
 
 // 2 Build SQL Query
+$sql = "INSERT INTO 
+    cars (id, name, brand) 
+VALUES 
+    ('$car->id', '$car->name', '$car->brand')";
+
+$sql = "INSERT INTO 
+        `cars` (`id`, `name`, `brand`) 
+    VALUES 
+        ('$car->id', '$car->name', '$car->brand')";
+
 
 // 3 Send SQL Query to server
+$mysqli->query($sql);
 
 // 4 Catch Response (or error)
+if ($mysqli->connect_error) {
+    die("Insert failed: " . $mysqli->connect_error);
+}
 
 // 5 Disconnect from Server
+$mysqli->close();
 
 

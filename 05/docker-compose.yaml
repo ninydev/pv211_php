@@ -13,11 +13,12 @@ services:
 
 
   pv211.db:
-    image: mariadb
+    image: mariadb:10.0
     ports:
       - "3306:3306"
     environment:
       MARIADB_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: example
 
   pv211.adminer:
     image: adminer

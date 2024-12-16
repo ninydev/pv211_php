@@ -1,0 +1,8 @@
+CREATE TABLE `pv211`.`cars`
+(
+    `id` CHAR(36) NOT NULL ,
+    `name` VARCHAR(64) NOT NULL ,
+    `brand` VARCHAR(64) NOT NULL ,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+ PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
