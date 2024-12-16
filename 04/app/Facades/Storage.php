@@ -32,7 +32,7 @@ class Storage
 
 
 
-    public static function disk(StorageTypeEnum $type)
+    public static function disk(StorageTypeEnum $type) : StorageServiceInterface
     {
         switch ($type) {
             case StorageTypeEnum::Local:
@@ -44,6 +44,7 @@ class Storage
                 return self::$azureStorageService;
                 break;
         }
+        return self::$defaultStorage;
     }
 
 
