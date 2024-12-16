@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Config\AppConfig;
+use app\Config\AppConfig;
 use App\Facades\Log;
 use App\Services\Interfaces\StorageServiceInterface;
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;

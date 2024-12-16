@@ -1,0 +1,25 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  pv211.phpmyadmin:
+    image: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=pv211.db
+    ports:
+      - "8088:80"
+
+
+  pv211.db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: example
+
+  pv211.adminer:
+    image: adminer
+    ports:
+      - "8080:8080"

@@ -1,6 +1,8 @@
 <?php
 
 
+namespace app\Http\Controllers;
+
 use Exception;
 
 /**
@@ -12,7 +14,8 @@ abstract class BaseWebController
 
     protected string $templateName = 'default';
 
-    public function view(array $data = null) : string | null {
+    public function view(array $data = null): string|null
+    {
 
         // Начинаем буферизацию вывода
         ob_start();

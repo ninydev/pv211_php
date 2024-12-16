@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
-use App\Config\AppConfig;
+use app\Config\AppConfig;
 use App\Facades\Log;
 use App\Services\Interfaces\StorageServiceInterface;
-use MicrosoftAzure\Storage\File\FileRestProxy;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
-use MicrosoftAzure\Storage\File\Models\CreateFileOptions;
+use MicrosoftAzure\Storage\File\FileRestProxy;
 
 class AzureShareStorageService implements StorageServiceInterface
 {

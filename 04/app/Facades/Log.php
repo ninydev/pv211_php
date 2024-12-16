@@ -2,7 +2,7 @@
 
 namespace App\Facades;
 
-use App\Config\AppConfig;
+use app\Config\AppConfig;
 use App\Services\LogService;
 
 class Log
