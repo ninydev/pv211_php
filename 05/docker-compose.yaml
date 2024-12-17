@@ -3,6 +3,27 @@ version: '3.1'
 
 services:
 
+#  pv211.php-fpm:
+#    build:
+#      dockerfile: ./Dockerfile_php-fpm
+#    container_name: pv211.php-fpm
+#    volumes:
+#      - ./src:/var/www    # Монтируем локальную папку src в контейнер
+#    ports:
+#      - "9000:9000"       # Пробрасываем порт 8000 на хост
+#    working_dir: /var/www
+
+  pv211.php-cli:
+    build:
+      dockerfile: ./Dockerfile_php-cli
+    container_name: pv211.php-cli
+    volumes:
+      - ./src:/var/www    # Монтируем локальную папку src в контейнер
+    ports:
+      - "8000:8000"       # Пробрасываем порт 8000 на хост
+    working_dir: /var/www
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+
   pv211.phpmyadmin:
     image: phpmyadmin
     environment:
@@ -10,7 +31,6 @@ services:
       - PMA_HOSTS=pv211.db
     ports:
       - "8088:80"
-
 
   pv211.db:
     image: mariadb:10.0

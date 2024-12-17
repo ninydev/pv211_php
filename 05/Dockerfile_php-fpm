@@ -1,0 +1,20 @@
+# Используем официальный PHP-FPM образ
+FROM php:8.4-fpm
+
+# Устанавливаем необходимые PHP-расширения
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Устанавливаем Xdebug (если нужно)
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+# Устанавливаем рабочую директорию в контейнере
+WORKDIR /var/www
+
+# Копируем проект (на случай отсутствия монтирования)
+# COPY ./src /var/www
+
+# Открываем порт (если нужно для диагностики)
+EXPOSE 9000
+
+# Команда по умолчанию для PHP-FPM
+CMD ["php-fpm"]
