@@ -8,6 +8,9 @@
         "ramsey/uuid": "^4.7",
         "symfony/dotenv": "^7.2",
         "monolog/monolog": "^3.8",
-        "ext-mysqli": "*"
+        "ext-mysqli": "*",
+      "ext-pdo": "*",
+        "catfan/medoo": "^2.1.12",
+        "illuminate/database": "^11.35"
     }
 }

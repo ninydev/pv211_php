@@ -6,7 +6,8 @@ require_once '../vendor/autoload.php';
 
 try {
     // 1. Подключение к базе данных (MariaDB) через PDO
-    $dsn = "mysql:host=" . AppConfig::get('DB_HOST') . ";dbname=" . AppConfig::get('DB_DBNAME') . ";charset=utf8mb4";
+    $dsn = "mysql:host=" . AppConfig::get('DB_HOST') .
+        ";dbname=" . AppConfig::get('DB_DBNAME') . ";charset=utf8mb4";
     $pdo = new PDO($dsn, AppConfig::get('DB_USER'), AppConfig::get('DB_PASSWORD'));
 
     // Устанавливаем режим обработки ошибок для PDO

@@ -2,33 +2,33 @@
 
 namespace App\Models;
 
-use App\Models\BaseModel;
+use App\Traits\GeneratesUuidTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class CarModel extends BaseModel
+class CarModel extends Model
 {
 
-    public function __construct($data = null)
+    /**
+     * Отношение: Каждая машина принадлежит одному цвету
+     */
+    public function color(): BelongsTo
     {
-        parent::__construct();
-        if (!is_null($data)) {
-            $this->id = $data['id'];
-            $this->name = $data['name'];
-            $this->brand = $data['brand'];
-            $this->created_at = $data['created_at'];
-        }
-
+        return $this->belongsTo(ColorModel::class, 'color_id'); // 'color_id' - внешний ключ в таблице cars
     }
 
-    public function toSql(): string
-    {
-        $sql = "INSERT INTO 
-        `cars` (`id`, `name`, `brand`) 
-    VALUES 
-        ('$this->id', '$this->name', '$this->brand')";
 
-        return $sql;
-    }
+    use GeneratesUuidTrait;
 
-    public string $name = '';
-    public string $brand = '';
+
+    // User --> users
+    // Man -->men
+    // UserPost --> user_posts
+
+    protected $table = 'cars';
+    // Тип ключа
+    protected $keyType = 'string';
+
+    // Отключаем автоинкремент
+    public $incrementing = false;
 }
