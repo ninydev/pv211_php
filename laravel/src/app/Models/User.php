@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'telegram_id', // Якщо я додав поле у таблице - тут я его додаю - це для того щоб можна було використовувати це поле в масовому заповненні
         'password',
     ];
 
