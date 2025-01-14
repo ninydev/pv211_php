@@ -17,6 +17,15 @@
                     <li><a class="dropdown-item" href="{{ route('colors.create') }}">Create Color</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cars
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('cars.index') }}">All Cars</a></li>
+                    <li><a class="dropdown-item" href="{{ route('cars.create') }}">Create Cars</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
