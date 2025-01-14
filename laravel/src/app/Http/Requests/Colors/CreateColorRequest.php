@@ -23,6 +23,7 @@ class CreateColorRequest extends FormRequest
         return [
             'name' => 'required|string|min:1|max:255',
             'hex' => 'required|string|size:7|regex:/^#[0-9A-Fa-f]{6}$/',
+            'thumb' => 'required|image|max:2048',
         ];
     }
 }

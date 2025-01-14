@@ -32,7 +32,13 @@ class ColorController extends Controller
      */
     public function store(CreateColorRequest $request)
     {
-        ColorModel::create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('thumb')) {
+            $data['url'] = $request->file('thumb')
+                ->store('thumbs/' . date('Y/F'), 'public');
+        }
+        ColorModel::create($data);
         return redirect()->route('colors.index');
     }
 
