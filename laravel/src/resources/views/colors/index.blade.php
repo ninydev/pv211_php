@@ -12,6 +12,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Hex Code</th>
                 <th>Actions</th>
             </tr>
@@ -21,6 +22,10 @@
                 <tr>
                     <td>{{ $color->id }}</td>
                     <td>{{ $color->name }}</td>
+                    <td>
+                        <img src="{{ Storage::url($color->url) }}" alt="{{ $color->name }}" width="50">
+                        <img src="{{ asset('storage/' . $color->url) }}" alt="{{ $color->name }}" width="50">
+                    </td>
                     <td style="background-color: {{ $color->hex }};">{{ $color->hex }}</td>
                     <td>
                         <a href="{{route('colors.edit', $color->id) }}"  class="btn btn-secondary"> Edit </a>
@@ -36,6 +41,6 @@
         </table>
 
         <!-- Pagination links -->
-        {{ $colors->links() }}
+        {{ $colors->links('pagination::bootstrap-4') }}
     </div>
 @endsection

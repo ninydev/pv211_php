@@ -15,7 +15,7 @@ class ColorController extends Controller
     {
         // dd(ColorModel::all());
 
-        $colors = ColorModel::paginate(2); // Adjust the number of items per page as needed
+        $colors = ColorModel::paginate(10); // Adjust the number of items per page as needed
         return view('colors.index', compact('colors'));
     }
 
@@ -36,7 +36,9 @@ class ColorController extends Controller
 
         if ($request->hasFile('thumb')) {
             $data['url'] = $request->file('thumb')
-                ->store('thumbs/' . date('Y/F'), 'public');
+                ->store('thumbs/' . date('Y/F'), 'azure');
+//            $data['url'] = $request->file('thumb')
+//                ->store('thumbs/' . date('Y/F'), 'public');
         }
         ColorModel::create($data);
         return redirect()->route('colors.index');
