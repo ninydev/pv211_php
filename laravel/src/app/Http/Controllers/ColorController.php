@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Colors\CreateColorRequest;
 use App\Models\ColorModel;
-use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
@@ -36,9 +35,9 @@ class ColorController extends Controller
 
         if ($request->hasFile('thumb')) {
             $data['url'] = $request->file('thumb')
-                ->store('thumbs/' . date('Y/F'), 'azure');
+                ->store('colors/' . date('Y/F'), 'public');
 //            $data['url'] = $request->file('thumb')
-//                ->store('thumbs/' . date('Y/F'), 'public');
+//                ->store('thumbs/' . date('Y/F'), 'azure');
         }
         ColorModel::create($data);
         return redirect()->route('colors.index');
