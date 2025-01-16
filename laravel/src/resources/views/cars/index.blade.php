@@ -11,6 +11,7 @@
             <thead>
             <tr>
                 <th>Name</th>
+                <th>Colors</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -18,6 +19,11 @@
             @foreach ($cars as $car)
                 <tr>
                     <td>{{ $car->name }}</td>
+                    <td>
+                        @foreach ($car->colors as $color)
+                            <img src="{{ asset('storage/' . $color->url) }}" width="250">
+                        @endforeach
+                    </td>
                     <td>
                         <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">View</a>
                         <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">Edit</a>
@@ -31,6 +37,6 @@
             @endforeach
             </tbody>
         </table>
-        {{ $cars->links('pagination::bootstrap-4') }}
+        {{ $cars->links() }}
     </div>
 @endsection

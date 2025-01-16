@@ -26,6 +26,15 @@
                     <li><a class="dropdown-item" href="{{ route('cars.create') }}">Create Cars</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Car Colors
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('car_colors.index') }}">All Car Colors</a></li>
+                    <li><a class="dropdown-item" href="{{ route('car_colors.create') }}">Assign Color to Car</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
