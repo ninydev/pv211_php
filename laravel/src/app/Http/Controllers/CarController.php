@@ -33,6 +33,8 @@ class CarController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
+        // $validatedData['author_id'] = auth()->id();
+
         CarModel::create($validatedData);
 
         return redirect()->route('cars.index')->with('success', 'Car created successfully.');
