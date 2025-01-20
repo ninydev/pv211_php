@@ -1,0 +1,15 @@
+{
+    "uuid": "8e0672c4-7565-4a35-901e-a37c4ff84f15",
+    "displayName": "App\\Listeners\\SendEmailVerificationNotificationListener",
+    "job": "Illuminate\\Queue\\CallQueuedHandler@call",
+    "maxTries": null,
+    "maxExceptions": null,
+    "failOnTimeout": false,
+    "backoff": null,
+    "timeout": null,
+    "retryUntil": null,
+    "data": {
+        "commandName": "Illuminate\\Events\\CallQueuedListener",
+        "command": "O:36:\"Illuminate\\Events\\CallQueuedListener\":20:{s:5:\"class\";s:55:\"App\\Listeners\\SendEmailVerificationNotificationListener\";s:6:\"method\";s:6:\"handle\";s:4:\"data\";a:1:{i:0;O:33:\"Illuminate\\Auth\\Events\\Registered\":1:{s:4:\"user\";O:45:\"Illuminate\\Contracts\\Database\\ModelIdentifier\":5:{s:5:\"class\";s:15:\"App\\Models\\User\";s:2:\"id\";i:9;s:9:\"relations\";a:0:{}s:10:\"connection\";s:5:\"mysql\";s:15:\"collectionClass\";N;}}}s:5:\"tries\";N;s:13:\"maxExceptions\";N;s:7:\"backoff\";N;s:10:\"retryUntil\";N;s:7:\"timeout\";N;s:13:\"failOnTimeout\";b:0;s:17:\"shouldBeEncrypted\";b:0;s:3:\"job\";N;s:10:\"connection\";N;s:5:\"queue\";N;s:5:\"delay\";N;s:11:\"afterCommit\";N;s:10:\"middleware\";a:0:{}s:7:\"chained\";a:0:{}s:15:\"chainConnection\";N;s:10:\"chainQueue\";N;s:19:\"chainCatchCallbacks\";N;}",
+    }
+}
