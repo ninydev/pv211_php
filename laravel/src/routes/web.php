@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\CarColorController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ColorController;
@@ -17,6 +18,9 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/generate-avatar',
+        [AvatarController::class, 'generateAvatarByUser'])->name('profile.avatars.generate');
 
     Route::resource('/cars', CarController::class);
     Route::resource('/colors', ColorController::class);

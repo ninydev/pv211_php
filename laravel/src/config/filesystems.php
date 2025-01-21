@@ -45,6 +45,14 @@ return [
             'throw' => false,
         ],
 
+        'avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avatars'),
+            'url' => env('APP_URL').'/storage/avatars',
+            'visibility' => 'public',
+            'throw' => true,
+        ],
+
         'azure' => [
             'driver'    => 'azure',
             'name'      => env('AZURE_STORAGE_NAME'),
