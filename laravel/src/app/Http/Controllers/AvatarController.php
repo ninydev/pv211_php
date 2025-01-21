@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class AvatarController extends Controller
 {
+    public function uploadAvatar(Request $request, AvatarService $avatarService)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:webp,jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $avatarService->uploadAvatar($request->file('avatar'), $request->user());
+        return redirect()->back()->with('success', 'Avatar uploaded successfully.');
+    }
+
 
     public function generateAvatarByUser(Request $request, AvatarService $avatarService)
     {

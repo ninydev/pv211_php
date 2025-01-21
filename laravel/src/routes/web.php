@@ -19,8 +19,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/generate-avatar',
-        [AvatarController::class, 'generateAvatarByUser'])->name('profile.avatars.generate');
+    Route::get('/profile/generate-avatar',
+        [AvatarController::class, 'generateAvatarByUser'])->name('profile.avatar.generate');
+    Route::post('/profile/upload-avatar',
+        [AvatarController::class, 'uploadAvatar'])->name('profile.avatar.upload');
 
     Route::resource('/cars', CarController::class);
     Route::resource('/colors', ColorController::class);

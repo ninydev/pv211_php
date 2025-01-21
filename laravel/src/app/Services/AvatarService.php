@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 // use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -20,8 +21,9 @@ class AvatarService
         $avatarUrl = "https://www.gravatar.com/avatar/{$emailHash}?s=128&d=identicon&r=PG";
         $avatarContents = file_get_contents($avatarUrl);
 
-        $this->convertAndSaveAvatar($user, $avatarContents);
-        Storage::disk('avatars')->put("{$user->id}/avatar.webp", $avatarContents);
+        Storage::disk('avatars')->put("{$user->id}/avatar.original", $avatarContents);
+
+        $this->convertAndSaveAvatar($user); // , $avatarContents);
     }
 
     /**
@@ -39,23 +41,26 @@ class AvatarService
         $avatarUrl = "https://ui-avatars.com/api/?name={$name}&color=7F9CF5&background=EBF4FF&size=128&format=webp";
         $avatarContents = file_get_contents($avatarUrl);
 
-        $this->convertAndSaveAvatar($user, $avatarContents);
-        // Storage::disk('avatars')->put("{$user->id}/avatar.webp", $avatarContents);
+        Storage::disk('avatars')->put("{$user->id}/avatar.original", $avatarContents);
+        $this->convertAndSaveAvatar($user);
     }
 
     /**
      * Convert a file to webp format and resize it.
      *
      * @param $user
-     * @param string $filePath
-     * @param int $width
-     * @param int $height
      */
-    private function convertAndSaveAvatar($user, string $fileContext,
-                                           int $width =128, int $height = 128): void
+    public function convertAndSaveAvatar($user): void
     {
-        $image = Image::make($fileContext)->fit($width, $height)->encode('webp');
+        $filePath = Storage::disk('avatars')->path("{$user->id}/avatar.original");
+        $image = Image::make($filePath)->resize(128, 128)->encode('webp', 90);
         Storage::disk('avatars')->put("{$user->id}/avatar.webp", (string) $image);
+    }
+
+    public function uploadAvatar(array|\Illuminate\Http\UploadedFile|null $file, mixed $user)
+    {
+        $filePath = $file->storeAs("avatars/{$user->id}", 'avatar.original', 'public');
+        $this->convertAndSaveAvatar($user);
     }
 
 
