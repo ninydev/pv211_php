@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 // use Intervention\Image\ImageManager;
@@ -55,13 +56,22 @@ class AvatarService
         $filePath = Storage::disk('avatars')->path("{$user->id}/avatar.original");
         $image = Image::make($filePath)->resize(128, 128)->encode('webp', 90);
         Storage::disk('avatars')->put("{$user->id}/avatar.webp", (string) $image);
+
+//        $image2 = Image::make($filePath)->resize(256, 256)->encode('webp', 90);
+//        Storage::disk('avatars')->put("{$user->id}/avatar_256.webp", (string) $image2);
+
     }
 
-    public function uploadAvatar(array|\Illuminate\Http\UploadedFile|null $file, mixed $user)
+    /**
+     * Upload an avatar for the user.
+     *
+     * @param UploadedFile $file
+     * @param mixed $user
+     * @return void
+     */
+    public function uploadAvatar(UploadedFile $file, mixed $user): void
     {
         $filePath = $file->storeAs("avatars/{$user->id}", 'avatar.original', 'public');
         $this->convertAndSaveAvatar($user);
     }
-
-
 }
