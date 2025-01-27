@@ -64,4 +64,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class);
     }
+
+    // Это кого читаю я
+    public function subscribers()
+    {
+        return $this->hasMany(User::class, 'author_id', 'user_id', 'subscribers');
+    }
+
+    // КТо читает меня
+    public function followers()
+    {
+        return $this->hasMany(User::class, 'user_id', 'author_id', 'subscribers');
+    }
 }

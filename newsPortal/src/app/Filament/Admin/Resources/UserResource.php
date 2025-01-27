@@ -42,6 +42,16 @@ class UserResource extends Resource
                     ->multiple()
                     ->relationship('roles', 'name')
                     ->preload(),
+                Forms\Components\Select::make('subscribers')
+                    ->label('subscribers')
+                    ->multiple()
+                    ->relationship('subscribers', 'name')
+                    ->preload(),
+                Forms\Components\Select::make('Followers')
+                    ->label('followers')
+                    ->multiple()
+                    ->relationship('followers', 'name')
+                    ->preload(),
             ]);
     }
 
