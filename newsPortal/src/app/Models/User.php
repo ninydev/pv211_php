@@ -48,4 +48,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the articles written by the user.
+     */
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'author_id');
+    }
+
+    /**
+     * Get the likes made by the user.
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
