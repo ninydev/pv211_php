@@ -8,6 +8,7 @@ use App\Notifications\CreateArticleNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
+use Spatie\Permission\Models\Role;
 
 class CreateArticleListener implements ShouldQueue
 {
@@ -34,7 +35,7 @@ class CreateArticleListener implements ShouldQueue
         }
 
         // Notify admins
-        $admins = User::whereRole('admin')->get();
+        $admins = Role::where('name', 'admin')->first()->users;
         foreach ($admins as $admin) {
             $admin->notify(new CreateArticleNotification($event));
         }
