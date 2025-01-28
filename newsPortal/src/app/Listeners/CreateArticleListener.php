@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\CreateArticleEvent;
 use App\Models\User;
 use App\Notifications\CreateArticleNotification;
+use Filament\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
@@ -38,6 +39,10 @@ class CreateArticleListener implements ShouldQueue
         $admins = Role::where('name', 'admin')->first()->users;
         foreach ($admins as $admin) {
             $admin->notify(new CreateArticleNotification($event));
+
+            Notification::make()
+                ->title('Saved successfully')
+                ->sendToDatabase($admin);
         }
 
 //        Log::info('Article created', [

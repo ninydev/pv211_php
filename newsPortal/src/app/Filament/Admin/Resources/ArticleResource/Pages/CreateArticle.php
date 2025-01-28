@@ -9,6 +9,8 @@ use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
+use Filament\Notifications\Notification;
+
 class CreateArticle extends CreateRecord
 {
     protected function afterCreate(): void
