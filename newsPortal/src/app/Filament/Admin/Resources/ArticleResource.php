@@ -45,7 +45,7 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('article_id')->label('Article ID'),
+                Tables\Columns\TextColumn::make('id')->label('Article ID'),
                 Tables\Columns\TextColumn::make('title')->label('Title')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('likes_count')->label('Likes Count')->counts('likes'),
 

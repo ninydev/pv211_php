@@ -68,12 +68,14 @@ class User extends Authenticatable
     // Это кого читаю я
     public function subscribers()
     {
-        return $this->hasMany(User::class, 'author_id', 'user_id', 'subscribers');
+        return $this->belongsToMany(User::class,'subscribers',
+            'user_id', 'author_id');
     }
 
     // КТо читает меня
     public function followers()
     {
-        return $this->hasMany(User::class, 'user_id', 'author_id', 'subscribers');
+        return $this->belongsToMany(User::class, 'subscribers',
+            'author_id', 'user_id');
     }
 }
